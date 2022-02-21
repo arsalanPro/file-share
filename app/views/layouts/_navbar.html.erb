@@ -1,0 +1,18 @@
+<div class="mynavbar">
+    <div class="mynavbar-left">
+        <%= link_to(root_path) do %>
+            <b class="mynavbar-brand">Rapid File Share</b>
+        <% end %>
+    </div>
+    <div class="mynavbar-right">
+        <% if current_user %> 
+            <%= link_to edit_user_registration_path do %>
+                <span><%= current_user.fullname %></span>
+            <% end %>
+            <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"btn mybtn" %>
+        <% else %> 
+            <%= link_to "Login", new_user_session_path %>
+            <%= link_to "Sign Up", new_user_registration_path %>
+        <% end %> 
+    </div>
+</div>
